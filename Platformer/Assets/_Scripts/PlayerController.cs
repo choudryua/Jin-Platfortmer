@@ -1,13 +1,6 @@
-using Cinemachine;
 using System.Collections;
-using System.Collections.Generic;
-using Unity.Mathematics;
-using Unity.VisualScripting;
-using UnityEditor.Rendering.LookDev;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UIElements;
-using static UnityEngine.Rendering.DebugUI;
 public class PlayerController : MonoBehaviour
 {
 
@@ -25,7 +18,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool isDashing = true;
     [SerializeField] private float dashingTime;
     [SerializeField] private bool isDead = false;
-    
+    [SerializeField] private AudioClip _Dashclip;
+
 
 
 
@@ -98,7 +92,7 @@ public class PlayerController : MonoBehaviour
         {
             StartCoroutine(Dash());
             print("DASH U FUCKER");
-            
+            SoundManager.instance.PlaySound(_Dashclip);
         }
  
     }
